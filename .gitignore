@@ -49,4 +49,4 @@ $RECYCLE.BIN/
 
 ### Bower ###
 bower_components
-*public/libs*
+*public/libs/*
