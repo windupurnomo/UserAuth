@@ -22,10 +22,14 @@ module.exports = function(passport) {
     router.get('/', isAuthenticated, function(req, res) {
         var matches = helper.matchProcessor.getMatch();
         res.render('index', {
-            username: req.user.username,
+            user: req.user,
             message: req.flash('message')
         });
     });
+
+    router.get('/x', function (req, res){
+        res.render('empty');
+    })
 
     router.get('/t', function (req, res){
         var fullUrl = req.protocol + '://' + req.get('host');
@@ -33,6 +37,7 @@ module.exports = function(passport) {
     });
 
     authRoutes(router, passport);
+    
 
     return router;
 }
